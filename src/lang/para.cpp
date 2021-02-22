@@ -287,7 +287,7 @@ static Command parseOption(int argc,char *argv[]) {
 	} catch(const bstPrgOpt::error& e) {
 		std::cerr << e.what() << '\n';
 		std::cerr << desc << '\n';
-        std::exit(-1);
+		std::exit(-1);
 	}
 
 	if( vm.count("help")     ) return Command::PrintUsage;
@@ -318,7 +318,7 @@ static Command parseOption(int argc,char *argv[]) {
 	if(n>0) {
 		gInputFilePath=strdup(argVec[0].c_str());
 		for(size_t i=1; i<n; i++) {
-			std::string s=argVec[i];	
+			std::string s=argVec[i];
 			if(s.length()>1 && s[0]=='"' && s[s.length()-1]!='"') {
 				for(++i; i<n; i++) {
 					std::string t=argVec[i];

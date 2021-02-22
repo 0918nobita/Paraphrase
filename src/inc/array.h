@@ -12,7 +12,7 @@ template<typename T> struct Array {
 	Mutex mutex;
 
 	Array():length(-1),data(NULL) {
-		initMutex(mutex);	
+		initMutex(mutex);
 	}
 
 	Array(const Array& inSrc)

@@ -33,7 +33,7 @@ struct ChanMan {
 	}
 
 	inline void SetNumOfReader(const int inNumOfReader) {
-		Lock(mutex);	
+		Lock(mutex);
 			assert(NumOfReader<0);
 			NumOfReader=inNumOfReader;
 		Unlock(mutex);
@@ -41,7 +41,7 @@ struct ChanMan {
 
 	inline bool RemoveReader() {
 		bool ret=true;
-		Lock(mutex);	
+		Lock(mutex);
 			if(NumOfReader<0) {	// rest-pipes on only initialized channel.
 				// empty
 			} else {
@@ -52,44 +52,44 @@ struct ChanMan {
 					if(fifoBuffer.size()==0) {
 						ret=false;
 					}
-					fifoBuffer.clear();			
+					fifoBuffer.clear();
 				}
 				NotifyOne(cond);
 			}
-		Unlock(mutex);	
+		Unlock(mutex);
 		return ret;
 	}
 
 	inline void CloseOnWrite() {
-		Lock(mutex);	
+		Lock(mutex);
 			assert(NumOfWriter>0);
 			NumOfWriter--;
 			if(NumOfWriter==0) {
 				NotifyAll(cond);
-			} else {	
-				NotifyOne(cond);	
+			} else {
+				NotifyOne(cond);
 			}
-		Unlock(mutex);	
+		Unlock(mutex);
 	}
 
 	inline bool Send(const TypedValue& inTV) NOEXCEPT {
 		bool ret=true;
-		Lock(mutex);	
+		Lock(mutex);
 			if(IsOpen==false) {
 				ret=false;
 			} else {
 				fifoBuffer.emplace_back(inTV);
 			}
 			NotifyOne(cond);
-		Unlock(mutex);	
+		Unlock(mutex);
 		return ret;
 	}
 
 	inline TypedValue Recv() NOEXCEPT {
 		TypedValue ret(DataType::kTypeEOC);
-		LockForWait(mutex);	
+		LockForWait(mutex);
 			while(fifoBuffer.empty() && NumOfWriter>0) {
-				CondWait(cond,mutex);	
+				CondWait(cond,mutex);
 			}
 			if(fifoBuffer.empty()==false) {
 				ret=fifoBuffer.front();
@@ -97,7 +97,7 @@ struct ChanMan {
 			} else if(NumOfWriter==0) {
 				IsOpen=false;
 			}
-		UnlockForWait(mutex);	
+		UnlockForWait(mutex);
 		return ret;
 	}
 };

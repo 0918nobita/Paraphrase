@@ -256,7 +256,7 @@ void Optimize(CodeThread *ioThread) {
 	bool changed;
 	do {
 		changed=false;
-		for(int i=0; gOptDB[i].isValid; i++) {	
+		for(int i=0; gOptDB[i].isValid; i++) {
 			changed |= optimize(ioThread,gOptDB[i]);
 		}
 	} while( changed );
@@ -349,9 +349,9 @@ static bool mathOpOptimize(CodeThread *ioThread) {
 			case DataType::kTypeInt:		replaceIndex=0;	break;
 			case DataType::kTypeLong:		replaceIndex=1;	break;
 			case DataType::kTypeFloat:		replaceIndex=2;	break;
-			case DataType::kTypeDouble:		replaceIndex=3; break;
+			case DataType::kTypeDouble:		replaceIndex=3;	break;
 			case DataType::kTypeBigInt:		replaceIndex=4;	break;
-			case DataType::kTypeBigFloat:	replaceIndex=5; break;
+			case DataType::kTypeBigFloat:	replaceIndex=5;	break;
 			default:
 				fprintf(stderr,"SYSTEM ERROR in mathOpOptimise.\n");
 				exit(-1);
@@ -511,7 +511,7 @@ static bool lvopPack(CodeThread *ioThread) {
 				t+=2, lvopCount++) {
 				// empty
 			}	
-			assert(lvopCount>=2);		
+			assert(lvopCount>=2);
 			// build _nLVOP	numOfLVOP LVOP1 LVOP2 ... LVOPn
 			std::vector<TypedValue> newCode;
 			newCode.emplace_back(tv_N_LvopWord);

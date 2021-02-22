@@ -400,14 +400,14 @@ static std::string controlBlockNameStr(const ControlBlockType inCBT) {
 	std::string ret;
 	switch(inCBT) {
 		case ControlBlockType::kGROUP_MASK:
-			ret="(GROUP_MSK)";		
+			ret="(GROUP_MSK)";
 			break;
 
 		case ControlBlockType::kOPEN_COMMENT_GROUP:
 			ret="(COMMENT_GROUP)";
 			break;
 		case ControlBlockType::kOPEN_C_STYLE_COMMENT:
-			ret="(OPEN_C_COMMENT)";	
+			ret="(OPEN_C_COMMENT)";
 			break;
 		case ControlBlockType::kOPEN_CPP_STYLE_ONE_LINE_COMMENT:
 			ret="(OPEN_CPP_COMMENT)";
@@ -423,7 +423,7 @@ static std::string controlBlockNameStr(const ControlBlockType inCBT) {
 		case ControlBlockType::kOPEN_LEAVABLE_LOOP_GROUP:
 			ret="(LEAVABLE_LOOP_GROUP)";
 			break;
-		case ControlBlockType::kSyntax_FOR_PLUS:	
+		case ControlBlockType::kSyntax_FOR_PLUS:
 			ret="(for+)";
 			break;
 		case ControlBlockType::kSyntax_FOR_MINUS:

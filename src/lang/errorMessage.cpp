@@ -360,12 +360,12 @@ static NoParamErrorMessageDict gNoParamErrorMessageDict {
 	  }
 	},
 	{ NoParamErrorID::E_CAN_NOT_CLOSE_FILE, {
-		{ PPLang::EN,	"Can not close the file." 					},
-		{ PPLang::JP,	"ファイルを閉じることはできませんでした。"	},
+		{ PPLang::EN,	"Can not close the file." },
+		{ PPLang::JP,	"ファイルを閉じることはできませんでした。" },
 	  }
 	},
 	{ NoParamErrorID::E_CAN_NOT_FLUSH_FILE, {
-		{ PPLang::EN,	"Can not flush the file." 						   },
+		{ PPLang::EN,	"Can not flush the file." },
 		{ PPLang::JP, "ファイルをフラッシュすることはできませんでした。" },
 	  }
 	},
@@ -1013,7 +1013,7 @@ static ErrorWithStringMessageDict gErrorWithStringMessageDict {
 		{ PPLang::EN,	"Can not make a shorten word name '%s',"
 						"this name is already used and it is an unoverwritable."
 	    				"If you does not want to define shortend word,"
-						"please use '::' instead of ':'." 	},
+						"please use '::' instead of ':'." },
 		{ PPLang::JP,	"短縮名 '%s' は上書きできないワードとして"
 						"既に使用されています。" 
 						"短縮形を使用しないのであれば、: ではなく :: を"
